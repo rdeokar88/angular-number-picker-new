@@ -1,0 +1,31 @@
+{
+  "name": "angular-number-picker-new",
+  "version": "1.0.0",
+  "main": "./angular-number-picker-new.js",
+  "description": "A directive used for picking number by using up/down button, instead of typing",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rdeokar88/angular-number-picker-new.git"
+  },
+  "keywords": [
+    "angular",
+    "number",
+    "picker",
+ "new" ],
+  "author": "rdeokar88",
+  "license": "MIT",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "https://github.com/rdeokar88/angular-number-picker-new",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.2.0",
+    "gulp-webserver": "^0.9.1"
+  },
+  "dependencies": {
+    "angular": "^1.4.3",
+    "bootstrap": "^3.3.5"
+  }
+}

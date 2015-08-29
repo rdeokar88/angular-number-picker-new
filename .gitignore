@@ -1,0 +1,8 @@
+#npm
+node_modules/
+
+
+#demo
+demo/angular-number-picker-new.js
+demo/angular-number-picker-new.min.js
+demo/bower/
