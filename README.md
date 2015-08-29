@@ -28,7 +28,7 @@ Try it: [plunker](http://plnkr.co/edit/Aww1cb785mZIPqNHgZ4v?p=preview)
 ## Install ##
 
 ```JavaScript
-bower install angular-number-picker --save
+bower install angular-number-picker-new --save
 ```
 ## Basic Usage ##
 
