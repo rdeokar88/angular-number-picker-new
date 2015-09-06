@@ -130,7 +130,7 @@
 
                     });
 
-                    addon.on('touchstart', function(e) {
+                    /*addon.on('touchstart', function(e) {
                         getTarget(e).addClass('active');
                         start = new Date().getTime();
                         timeoutPro = $timeout(function() {
@@ -138,6 +138,7 @@
                                 changeNumber(e);
                             }, 200);
                         }, opts.timeout);
+
                         e.preventDefault();
                     });
 
@@ -156,7 +157,7 @@
                             $scope.$apply();
                         }
                         getTarget(e).removeClass('active');
-                    });
+                    });*/
 
                     $scope.$on('$destroy', function() {
                         addon.off('touchstart touchend click');
