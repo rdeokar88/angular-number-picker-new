@@ -72,6 +72,7 @@
                 restrict: 'E',
                 scope: {
                     'value': '=',
+                    'selectedItem' : '=',
                     'singular': '@',
                     'plural': '@',
                     'min': '@',
@@ -94,6 +95,7 @@
                     transform(opts);
 
                     $scope.value = $scope.value;
+                    $scope.selectedItem = $scope.selectedItem;
 
                     $scope.$watch('value', function(newValue) {
                         $scope.canDown = newValue > opts.min;
@@ -113,7 +115,7 @@
                             }
                             $scope.value -= opts.step;
                         }
-                        $scope.change();
+                        $scope.change()($scope.selectedItem , type);
                     };
 
                     var timeoutPro;
@@ -131,40 +133,46 @@
                     });
 
                     /*addon.on('touchstart', function(e) {
-                        getTarget(e).addClass('active');
-                        start = new Date().getTime();
-                        timeoutPro = $timeout(function() {
-                            intervalPro = $interval(function() {
-                                changeNumber(e);
-                            }, 200);
-                        }, opts.timeout);
+                     getTarget(e).addClass('active');
+                     start = new Date().getTime();
+                     timeoutPro = $timeout(function() {
+                     intervalPro = $interval(function() {
+                     changeNumber(e);
+                     }, 200);
+                     }, opts.timeout);
 
-                        e.preventDefault();
-                    });
+                     e.preventDefault();
+                     });
 
-                    addon.on('touchend', function(e) {
-                        end = new Date().getTime();
-                        if (intervalPro) {
-                            $interval.cancel(intervalPro);
-                            intervalPro = undefined;
-                        }
-                        if (timeoutPro) {
-                            $timeout.cancel(timeoutPro);
-                            timeoutPro = undefined;
-                        }
-                        if ((end - start) < opts.timeout) {
-                            changeNumber(e);
-                            $scope.$apply();
-                        }
-                        getTarget(e).removeClass('active');
-                    });*/
+                     addon.on('touchend', function(e) {
+                     end = new Date().getTime();
+                     if (intervalPro) {
+                     $interval.cancel(intervalPro);
+                     intervalPro = undefined;
+                     }
+                     if (timeoutPro) {
+                     $timeout.cancel(timeoutPro);
+                     timeoutPro = undefined;
+                     }
+                     if ((end - start) < opts.timeout) {
+                     changeNumber(e);
+                     $scope.$apply();
+                     }
+                     getTarget(e).removeClass('active');
+                     });*/
 
                     $scope.$on('$destroy', function() {
                         addon.off('touchstart touchend click');
                     });
 
                 },
-                template: '<div class="input-group"><span class="input-group-addon" type="down" ng-disabled="!canDown">&nbsp;&nbsp;-&nbsp;&nbsp;</span><label class="form-control">{{ value }} {{value === 1 ? singular : plural}}</label><span class="input-group-addon" type="up" ng-disabled="!canUp">&nbsp;&nbsp;+&nbsp;&nbsp;</span></div>'
+                template: '<div class="input-group">' +
+                '<span class="input-group-addon" type="down" ng-disabled="!canDown">' +
+                '&nbsp;&nbsp;-&nbsp;&nbsp;</span>' +
+                '<label class="form-control">{{ value }} {{value === 1 ? singular : plural}}</label>' +
+                '<span class="input-group-addon" type="up" ng-disabled="!canUp">' +
+                '&nbsp;&nbsp;+&nbsp;&nbsp;</span>' +
+                '</div>'
             };
         };
 
