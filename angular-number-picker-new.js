@@ -115,7 +115,11 @@
                             }
                             $scope.value -= opts.step;
                         }
-                        $scope.change()($scope.selectedItem , type);
+
+                        if($scope.change()){
+                            $scope.change()($scope.selectedItem , type);
+                        }
+
                     };
 
                     var timeoutPro;
